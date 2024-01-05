@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FirstAppWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FirstAppWPF" Height="350" Width="500">
+        Title="Write Note" Height="350" Width="500" Icon="C:\Users\Monzer\source\repos\first app WPF\first app WPF\halicIcon.ico">
     <Grid>
         <TextBox x:Name="noteTextBox" Margin="10,57,10,0" TextWrapping="Wrap" AcceptsReturn="True" Height="242" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
