@@ -59,8 +59,10 @@ namespace FirstAppWPF
         {
             if (File.Exists(NotesFilePath))
             {
-                string allNotes = File.ReadAllText(NotesFilePath);
-                MessageBox.Show("Saved Notes:\n" + allNotes);
+                NotesWindow notesWindow = new NotesWindow();
+                notesWindow.Owner = this; // Set MainWindow as the owner
+                notesWindow.DisplayNotes(NotesFilePath);
+                notesWindow.ShowDialog();
             }
             else
             {
@@ -80,17 +82,7 @@ namespace FirstAppWPF
 
         private void ShowNotesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(NotesFilePath))
-            {
-                NotesWindow notesWindow = new NotesWindow();
-                notesWindow.Owner = this; // Set MainWindow as the owner
-                notesWindow.DisplayNotes(NotesFilePath);
-                notesWindow.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("No notes found!");
-            }
+            ShowSavedNotes();
         }
     }
 }
