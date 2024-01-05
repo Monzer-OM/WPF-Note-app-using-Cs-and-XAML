@@ -25,7 +25,7 @@ namespace FirstAppWPF
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.N)
             {
                 this.Close();
-                e.Handled = true; // Mark the event as handled to prevent further processing
+                e.Handled = true; // Mark the event as handled to prevent further processinggg..
             }
 
         }
