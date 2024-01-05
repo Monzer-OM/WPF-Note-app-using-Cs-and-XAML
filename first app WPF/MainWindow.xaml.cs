@@ -12,18 +12,19 @@ namespace FirstAppWPF
         public MainWindow()
         {
             InitializeComponent();
-            // Hook up the PreviewKeyDown event handler for MainWindow
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
 
         private void SaveNote()
         {
-            string note = $"{DateTime.Now.ToString("MM/dd/yyyy HH:mm")} - {noteTextBox.Text}"; // Include date and time with the note
-            if (!string.IsNullOrWhiteSpace(noteTextBox.Text))
+            string note = noteTextBox.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(note))
             {
-                File.AppendAllText(NotesFilePath, note + Environment.NewLine);
+                string formattedNote = $"{DateTime.Now.ToString("MM/dd/yyyy HH:mm")} - {note}"; // Include date and time with the note
+
+                File.AppendAllText(NotesFilePath, formattedNote + Environment.NewLine);
                 noteTextBox.Clear();
-                MessageBox.Show("Note saved successfully!");
+                MessageBox.Show("Note saved successfully!!!!!!");
             }
             else
             {
@@ -48,21 +49,16 @@ namespace FirstAppWPF
 
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            // Check if Ctrl + S is pressed
             if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
             {
-                SaveNote(); // Call the SaveNote method when Ctrl + S is pressed
-                e.Handled = true; // Mark the event as handled to prevent further processing
+                SaveNote();
+                e.Handled = true;
             }
-
-            // Check if Ctrl + D is pressed
-            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.D)
+            else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.D)
             {
-                noteTextBox.Clear(); // clear the note text box
+                noteTextBox.Clear();
             }
-
-            // check if f1 is pressed 
-            if(e.Key == Key.F1)
+            else if (e.Key == Key.F1)
             {
                 ShowSaved();
                 e.Handled = true;
@@ -71,7 +67,7 @@ namespace FirstAppWPF
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveNote(); // Call SaveNote method when Save Button is clicked
+            SaveNote();
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
@@ -81,9 +77,7 @@ namespace FirstAppWPF
 
         private void ShowNotesButton_Click(object sender, RoutedEventArgs e)
         {
-            
             ShowSaved();
-
         }
     }
 }
