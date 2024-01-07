@@ -3,7 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Notes" Height="300" Width="400" Icon="C:\Users\Monzer\source\repos\first app WPF\first app WPF\halicIcon.ico">
     <Grid>
-        <ListBox x:Name="notesListBox" Margin="10" Height="230"/>
-        <Button Content="Write New Note" Click="WriteNewNoteButton_Click" ToolTip="Ctrl + N" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
+        <ListBox x:Name="notesListBox" Margin="82,27,10,27" Height="230" SelectionChanged="notesListBox_SelectionChanged"/>
+        <Grid HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center">
+            <Button Content="Write New &#xD;&#xA;Note" Click="WriteNewNoteButton_Click" ToolTip="Ctrl + N" HorizontalAlignment="Left" VerticalAlignment="Center" Width="67" Height="38"/>
+
+
+        </Grid>
     </Grid>
 </Window>

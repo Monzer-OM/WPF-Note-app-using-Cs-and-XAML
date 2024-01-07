@@ -78,5 +78,9 @@ namespace FirstAppWPF
             }
         }
 
+        private void notesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
